@@ -185,7 +185,10 @@ int fixupdylib(char *dylib) {
     NSLog(@"vnode of %s: 0x%llx", dylib, vnode);
     
     uint32_t v_flags = rk32(vnode + offsetof_v_flags);
-    if (v_flags & VSHARED_DYLD) return 0;
+    if (v_flags & VSHARED_DYLD) {
+        vnode_put(vnode);
+        return 0;
+    }
     
     NSLog(@"old v_flags: 0x%x", v_flags);
     
