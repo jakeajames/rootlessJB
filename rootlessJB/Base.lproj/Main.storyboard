@@ -32,7 +32,7 @@
                                     <constraint firstAttribute="height" constant="185" id="z4y-B2-C0J"/>
                                 </constraints>
                                 <string key="text">
-Exploit by Ian Beer
+Exploits by Ian Beer and bazad
 
 Post exploitation is mostly from Electra, and things from my own.
 

@@ -9,9 +9,11 @@
 #import "ViewController.h"
 #import "jelbrekLib.h"
 #import "exploit/multi_path/sploit.h"
+#import "exploit/voucher_swap/voucher_swap.h"
 #import "libjb.h"
 #import "payload.h"
 #import "offsetsDump.h"
+#import "exploit/voucher_swap/kernel_slide.h"
 
 #import <mach/mach.h>
 #import <sys/stat.h>
@@ -70,6 +72,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (!maxVersion("11.4.1") && maxVersion("12.1.2")) {
+        [[self enableTweaks] setOn:false];
+        [[self enableTweaks] setEnabled:false];
+        [[self installiSuperSU] setOn:false];
+        [[self installiSuperSU] setEnabled:false];
+    }
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -102,8 +110,16 @@
         }
     }
     else {
-        taskforpidzero = exploit();
-        
+        if (!maxVersion("11.4.1") && maxVersion("12.1.2")) {
+            taskforpidzero = voucher_swap();
+        }
+        else if (maxVersion("11.3.1")) {
+            taskforpidzero = exploit();
+        }
+        else {
+            LOG("[-] Not supported");
+            return;
+        }
         if (!MACH_PORT_VALID(taskforpidzero)) {
             LOG("[-] Exploit failed");
             LOG("[i] Please try again");
@@ -113,7 +129,9 @@
     }
     
     LOG("[*] Starting fun");
-    init_jelbrek(taskforpidzero);
+    
+    kernel_slide_init();
+    init_with_kbase(taskforpidzero, 0xfffffff007004000 + kernel_slide);
     LOG("[i] Kernel base: 0x%llx", KernelBase);
     
     //---- basics ----//
@@ -177,7 +195,9 @@
     }
     
     //---- for jailbreakd & amfid ----//
-    failIf(dumpOffsetsToFile("/var/containers/Bundle/tweaksupport/offsets.data"), "[-] Failed to save offsets");
+    if (maxVersion("11.4.1")) {
+        failIf(dumpOffsetsToFile("/var/containers/Bundle/tweaksupport/offsets.data"), "[-] Failed to save offsets");
+    }
     
     //---- amfid patch ----//
     chmod(in_bundle("bins/tester"), 0777); //give it proper permissions
@@ -185,32 +205,37 @@
     
     if (launch(in_bundle("bins/tester"), NULL, NULL, NULL, NULL, NULL, NULL, NULL)) {
         
-        // patch amfid
-        failIf(trustbin(in_bundle("dylibs/amfid_payload.dylib")), "[-] Failed to trust amfid payload"); // add amfid_payload to trustcache since amfid itself can't validate it when it's purpose is making amfid validate it
-        
-        // get amfid's pid
-        pid_t amfid = pid_of_procName("amfid");
-        failIf(!amfid, "[-] Failed to get amfid's pid");
-        
-        // entitle it
-        failIf(!setcsflags(amfid), "[-] Failed to entitle amfid");
-        failIf(!entitlePidOnAMFI(amfid, "get-task-allow", true), "[-] Failed to entitle amfid");
-        failIf(!entitlePidOnAMFI(amfid, "com.apple.private.skip-library-validation", true), "[-] Failed to entitle amfid");
-        
-        // entitle ourselves too
-        failIf(!entitlePidOnAMFI(getpid(), "task_for_pid-allow", true), "[-] Failed to entitle myself");
-        failIf(!entitlePidOnAMFI(getpid(), "com.apple.system-task-ports", true), "[-] Failed to entitle myself");
-        
-        // inject
-        failIf(inject_dylib(amfid, in_bundle("dylibs/amfid_payload.dylib")), "[-] Failed to inject code into amfid!");
-        
-        // test
-        int ret = launch(in_bundle("bins/test"), NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-        failIf(ret, "[-] Failed to patch amfid!");
-        LOG("[+] Successfully patched amfid!");
+        if (maxVersion("11.4.1")) {
+            // patch amfid
+            failIf(trustbin(in_bundle("dylibs/amfid_payload.dylib")), "[-] Failed to trust amfid payload"); // add amfid_payload to trustcache since amfid itself can't validate it when it's purpose is making amfid validate it
+            
+            // get amfid's pid
+            pid_t amfid = pid_of_procName("amfid");
+            failIf(!amfid, "[-] Failed to get amfid's pid");
+            
+            // entitle it
+            failIf(!setcsflags(amfid), "[-] Failed to entitle amfid");
+            failIf(!entitlePidOnAMFI(amfid, "get-task-allow", true), "[-] Failed to entitle amfid");
+            failIf(!entitlePidOnAMFI(amfid, "com.apple.private.skip-library-validation", true), "[-] Failed to entitle amfid");
+            
+            // entitle ourselves too
+            failIf(!entitlePidOnAMFI(getpid(), "task_for_pid-allow", true), "[-] Failed to entitle myself");
+            failIf(!entitlePidOnAMFI(getpid(), "com.apple.system-task-ports", true), "[-] Failed to entitle myself");
+            
+            // inject
+            failIf(inject_dylib(amfid, in_bundle("dylibs/amfid_payload.dylib")), "[-] Failed to inject code into amfid!");
+            
+            // test
+            int ret = launch(in_bundle("bins/test"), NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+            failIf(ret, "[-] Failed to patch amfid!");
+            LOG("[+] Successfully patched amfid!");
+        }
+        else if (maxVersion("12.1.2")){
+            LOG("[*] iOS 12 detected. Not patching amfid.");
+        }
     }
     else {
-        LOG("[+] amfid already patched?");
+        LOG("[+] codesign already patched?");
     }
     
     //---- update bootstrap ----//
@@ -236,6 +261,8 @@
     removeFile("/var/containers/Bundle/tweaksupport/bin/jailbreakd");
     removeFile("/var/containers/Bundle/tweaksupport/usr/bin/uicache");
     removeFile("/var/containers/Bundle/tweaksupport/usr/bin/inject_dylib");
+    removeFile("/var/containers/Bundle/tweaksupport/usr/bin/inject");
+    
     // pref loader
     removeFile("/var/containers/Bundle/tweaksupport/Library/TweakInject/PreferenceLoader.dylib");
     removeFile("/var/containers/Bundle/tweaksupport/usr/lib/libprefs.dylib");
@@ -249,6 +276,8 @@
     copyFile(in_bundle("bins/jailbreakd"), "/var/containers/Bundle/tweaksupport/bin/jailbreakd");
     copyFile(in_bundle("bins/uicache"), "/var/containers/Bundle/tweaksupport/usr/bin/uicache");
     copyFile(in_bundle("bins/inject_dylib"), "/var/containers/Bundle/tweaksupport/usr/bin/inject_dylib");
+    copyFile(in_bundle("bins/inject"), "/var/containers/Bundle/tweaksupport/usr/bin/inject");
+    
     trustbin("/var/containers/Bundle/tweaksupport/usr/bin/inject_dylib");
     
     copyFile("/var/containers/Bundle/dylibs/PreferenceLoader.dylib", "/var/containers/Bundle/tweaksupport/Library/TweakInject/PreferenceLoader.dylib");
@@ -258,6 +287,11 @@
 
     copyFile("/var/containers/Bundle/dylibs/AppSyncUnified.dylib", "/var/containers/Bundle/tweaksupport/usr/lib/TweakInject/AppSyncUnified.dylib");
     copyFile("/var/containers/Bundle/dylibs/AppSyncUnified.plist", "/var/containers/Bundle/tweaksupport/usr/lib/TweakInject/AppSyncUnified.plist");
+    
+    if (!maxVersion("11.4.1") && maxVersion("12.1.2")) {
+        failIf(trustbin("/var/containers/Bundle/tweaksupport"), "[-] Failed to trust libs!");
+        failIf(trustbin("/var/containers/Bundle/iosbinpack64"), "[-] Failed to trust binaries!");
+    }
     
     prepare_payload(); // this will chmod 777 everything
     
@@ -277,7 +311,7 @@
     //------------- launch daeamons -------------//
     //--you can drop any daemon plist in iosbinpack64/LaunchDaemons and it will be loaded automatically--//
     
-    failIf(trustbin("/var/containers/Bundle/iosbinpack64/bin/launchctl"), "[-] Failed to trust launchctl");
+    if (maxVersion("11.4.1")) failIf(trustbin("/var/containers/Bundle/iosbinpack64/bin/launchctl"), "[-] Failed to trust launchctl");
 
     plists = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:@"/var/containers/Bundle/iosbinpack64/LaunchDaemons" error:nil];
     
@@ -293,6 +327,10 @@
             
             job[@"EnvironmentVariables"][@"KernelBase"] = [NSString stringWithFormat:@"0x%16llx", KernelBase];
             [job writeToFile:file atomically:YES];
+            
+            if (!maxVersion("11.4.1") && maxVersion("12.1.2")) {
+                [[NSFileManager defaultManager] removeItemAtPath:file error:nil];
+            }
         }
         
         chmod([file UTF8String], 0644);
@@ -310,15 +348,18 @@
     sleep(1);
     
     failIf(!fileExists("/var/log/testbin.log"), "[-] Failed to load launch daemons");
-    failIf(!fileExists("/var/log/jailbreakd-stdout.log"), "[-] Failed to load jailbreakd");
-    
-    // trust
-    failIf(trustbin(in_bundle("dylibs/launchd_payload.dylib")), "[-] Failed to trust pspawn payload");
-    
-    // entitle it
-    failIf(!setcsflags(1), "[-] Failed to entitle launchd");
-    failIf(!entitlePidOnAMFI(1, "get-task-allow", true), "[-] Failed to entitle launchd");
-    failIf(!entitlePidOnAMFI(1, "com.apple.private.skip-library-validation", true), "[-] Failed to entitle launchd");
+
+    if (maxVersion("11.4.1")) {
+        failIf(!fileExists("/var/log/jailbreakd-stdout.log"), "[-] Failed to load jailbreakd");
+
+        // trust
+        failIf(trustbin(in_bundle("dylibs/launchd_payload.dylib")), "[-] Failed to trust pspawn payload");
+        
+        // entitle it
+        failIf(!setcsflags(1), "[-] Failed to entitle launchd");
+        failIf(!entitlePidOnAMFI(1, "get-task-allow", true), "[-] Failed to entitle launchd");
+        failIf(!entitlePidOnAMFI(1, "com.apple.private.skip-library-validation", true), "[-] Failed to entitle launchd");
+    }
     
     if (self.enableTweaks.isOn) {
         // inject
@@ -356,19 +397,21 @@
         exit(0);
     }
     
-    pid_t installd = pid_of_procName("installd");
-    failIf(!installd, "[-] Can't find installd's pid");
-    
-    failIf(!setcsflags(installd), "[-] Failed to entitle installd");
-    failIf(!entitlePidOnAMFI(installd, "get-task-allow", true), "[-] Failed to entitle installd");
-    failIf(!entitlePidOnAMFI(installd, "com.apple.private.skip-library-validation", true), "[-] Failed to entitle installd");
-    
-    inject_dylib(installd, "/var/containers/Bundle/tweaksupport/usr/lib/TweakInject/AppSyncUnified.dylib");
-    
-    if ([self.installiSuperSU isOn]) {
-        LOG("[*] Installing iSuperSU");
-        copyFile(in_bundle("apps/iSuperSU.app"), "/var/containers/Bundle/tweaksupport/Applications/iSuperSU.app");
-        launch("/var/containers/Bundle/tweaksupport/usr/bin/uicache", NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+    if (maxVersion("11.4.1")) {
+        pid_t installd = pid_of_procName("installd");
+        failIf(!installd, "[-] Can't find installd's pid");
+        
+        failIf(!setcsflags(installd), "[-] Failed to entitle installd");
+        failIf(!entitlePidOnAMFI(installd, "get-task-allow", true), "[-] Failed to entitle installd");
+        failIf(!entitlePidOnAMFI(installd, "com.apple.private.skip-library-validation", true), "[-] Failed to entitle installd");
+        
+        inject_dylib(installd, "/var/containers/Bundle/tweaksupport/usr/lib/TweakInject/AppSyncUnified.dylib");
+        
+        if ([self.installiSuperSU isOn]) {
+            LOG("[*] Installing iSuperSU");
+            copyFile(in_bundle("apps/iSuperSU.app"), "/var/containers/Bundle/tweaksupport/Applications/iSuperSU.app");
+            launch("/var/containers/Bundle/tweaksupport/usr/bin/uicache", NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+        }
     }
     
     LOG("[+] Jailbreak succeeded. Enjoy");
@@ -383,7 +426,7 @@ end:;
     mach_port_t taskforpidzero = MACH_PORT_NULL;
     
     uint64_t sb = 0;
-    BOOL debug = NO; // kids don't enable this
+    BOOL debug = YES; // kids don't enable this
     
     NSError *error = NULL;
     
