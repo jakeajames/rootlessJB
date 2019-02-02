@@ -30,8 +30,15 @@ All executables must have at least these two entitlements:
 - Tweaks must be patched using the patcher script provided. (Mac/Linux/iOS only) or manually with a hex editor
 - Apps get installed in /var/Apps and later you need to run /var/containers/Bundle/iosbinpack64/usr/bin/uicache (other uicache binaries won't work)
 
+# iOS 12
+- No tweaks and code injection yet
+- No amfid patch yet. Must run "inject /path/to/binary" before adding a new binary
+- No jailbreakd yet
+- No remount (heh?)
+
 patcher usage:
 ./patcher /path/to/deb /path/to/output_folder
 
-Thanks to: Ian Beer, Jonathan Levin, Electra Team
+Thanks to: Ian Beer, Brandon Azad, Jonathan Levin, Electra Team, IBSparkes, Sam Bingner, Sammy Guichelaar
+
 
