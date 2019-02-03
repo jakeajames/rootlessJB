@@ -158,6 +158,13 @@
                                 <color key="textColor" red="0.33724969630000001" green="0.32903581859999997" blue="0.34149444099999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjB-6O-HDY">
+                                <rect key="frame" x="17" y="407" width="343" height="371"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.94525176290000001" green="0.94596821070000003" blue="0.94536274669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -203,6 +210,7 @@
                         <outlet property="enableTweaks" destination="Sz5-kd-jMO" id="wi3-JA-pKC"/>
                         <outlet property="installiSuperSU" destination="ofy-td-lf3" id="XxE-82-vrj"/>
                         <outlet property="jailbreakButton" destination="o31-tC-AKc" id="N2Y-vq-7D5"/>
+                        <outlet property="logs" destination="pjB-6O-HDY" id="YIX-lQ-Bht"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uBk-da-pbT" sceneMemberID="firstResponder"/>

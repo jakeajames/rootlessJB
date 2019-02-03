@@ -55,7 +55,6 @@
 
 /* Begin PBXFileReference section */
 		8207AE142154343700ABA466 /* apps */ = {isa = PBXFileReference; lastKnownFileType = folder; name = apps; path = rootlessJB/bootstrap/apps; sourceTree = "<group>"; };
-		820FA9F9213589AF004E38D8 /* rootlessJB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = rootlessJB.app; path = "/Users/diegosmc/Downloads/rootlessJB-patch-1/build/Debug-iphoneos/rootlessJB.app"; sourceTree = "<absolute>"; };
 		820FA9FC213589AF004E38D8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		820FA9FD213589AF004E38D8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		820FA9FF213589AF004E38D8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -89,6 +88,7 @@
 		825D33B52136B4E9008723F8 /* payload.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = payload.h; sourceTree = "<group>"; };
 		825D33B72136C284008723F8 /* offsetsDump.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = offsetsDump.c; sourceTree = "<group>"; };
 		825D33B82136C284008723F8 /* offsetsDump.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = offsetsDump.h; sourceTree = "<group>"; };
+		C6C343842206987B007382FB /* rootlessJB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rootlessJB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E05432232206765800AAB49A /* kernel_memory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kernel_memory.h; sourceTree = "<group>"; };
 		E05432242206765800AAB49A /* log.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = log.c; sourceTree = "<group>"; };
 		E05432252206765800AAB49A /* parameters.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parameters.c; sourceTree = "<group>"; };
@@ -149,6 +149,7 @@
 				820FAA14213589AF004E38D8 /* rootlessJBTests */,
 				820FAA1F213589AF004E38D8 /* rootlessJBUITests */,
 				825D33AD2136A70A008723F8 /* Frameworks */,
+				C6C343842206987B007382FB /* rootlessJB.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -277,7 +278,7 @@
 			);
 			name = rootlessJB;
 			productName = rootlessJB;
-			productReference = 820FA9F9213589AF004E38D8 /* rootlessJB.app */;
+			productReference = C6C343842206987B007382FB /* rootlessJB.app */;
 			productType = "com.apple.product-type.application";
 		};
 		820FAA10213589AF004E38D8 /* rootlessJBTests */ = {
