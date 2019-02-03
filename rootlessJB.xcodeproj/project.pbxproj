@@ -26,6 +26,14 @@
 		825D33B32136AA4F008723F8 /* tars in Resources */ = {isa = PBXBuildFile; fileRef = 825D33B22136AA4E008723F8 /* tars */; };
 		825D33B62136B4E9008723F8 /* payload.c in Sources */ = {isa = PBXBuildFile; fileRef = 825D33B42136B4E9008723F8 /* payload.c */; };
 		825D33B92136C284008723F8 /* offsetsDump.c in Sources */ = {isa = PBXBuildFile; fileRef = 825D33B72136C284008723F8 /* offsetsDump.c */; };
+		E05432362206765800AAB49A /* log.c in Sources */ = {isa = PBXBuildFile; fileRef = E05432242206765800AAB49A /* log.c */; };
+		E05432372206765800AAB49A /* parameters.c in Sources */ = {isa = PBXBuildFile; fileRef = E05432252206765800AAB49A /* parameters.c */; };
+		E05432382206765800AAB49A /* platform_match.c in Sources */ = {isa = PBXBuildFile; fileRef = E05432272206765800AAB49A /* platform_match.c */; };
+		E05432392206765800AAB49A /* platform.c in Sources */ = {isa = PBXBuildFile; fileRef = E054322A2206765800AAB49A /* platform.c */; };
+		E054323A2206765800AAB49A /* kernel_memory.c in Sources */ = {isa = PBXBuildFile; fileRef = E054322E2206765800AAB49A /* kernel_memory.c */; };
+		E054323B2206765800AAB49A /* voucher_swap.c in Sources */ = {isa = PBXBuildFile; fileRef = E05432302206765800AAB49A /* voucher_swap.c */; };
+		E054323C2206765800AAB49A /* kernel_alloc.c in Sources */ = {isa = PBXBuildFile; fileRef = E05432312206765800AAB49A /* kernel_alloc.c */; };
+		E054323D2206765800AAB49A /* kernel_slide.c in Sources */ = {isa = PBXBuildFile; fileRef = E05432332206765800AAB49A /* kernel_slide.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +55,7 @@
 
 /* Begin PBXFileReference section */
 		8207AE142154343700ABA466 /* apps */ = {isa = PBXFileReference; lastKnownFileType = folder; name = apps; path = rootlessJB/bootstrap/apps; sourceTree = "<group>"; };
-		820FA9F9213589AF004E38D8 /* rootlessJB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = rootlessJB.app; path = "/Users/diegosmc/Downloads/rootlessJB-master/build/Debug-iphoneos/rootlessJB.app"; sourceTree = "<absolute>"; };
+		820FA9F9213589AF004E38D8 /* rootlessJB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = rootlessJB.app; path = "/Users/diegosmc/Downloads/rootlessJB-patch-1/build/Debug-iphoneos/rootlessJB.app"; sourceTree = "<absolute>"; };
 		820FA9FC213589AF004E38D8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		820FA9FD213589AF004E38D8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		820FA9FF213589AF004E38D8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -57,8 +65,10 @@
 		820FAA08213589AF004E38D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		820FAA0A213589AF004E38D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		820FAA0B213589AF004E38D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		820FAA11213589AF004E38D8 /* rootlessJBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = rootlessJBTests.xctest; path = "/Users/diegosmc/Downloads/rootlessJB-patch-1/build/Debug-iphoneos/rootlessJBTests.xctest"; sourceTree = "<absolute>"; };
 		820FAA15213589AF004E38D8 /* rootlessJBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rootlessJBTests.m; sourceTree = "<group>"; };
 		820FAA17213589AF004E38D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		820FAA1C213589AF004E38D8 /* rootlessJBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = rootlessJBUITests.xctest; path = "/Users/diegosmc/Downloads/rootlessJB-patch-1/build/Debug-iphoneos/rootlessJBUITests.xctest"; sourceTree = "<absolute>"; };
 		820FAA20213589AF004E38D8 /* rootlessJBUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rootlessJBUITests.m; sourceTree = "<group>"; };
 		820FAA22213589AF004E38D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		825D33912135D17E008723F8 /* jelbrekLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jelbrekLib.h; sourceTree = "<group>"; };
@@ -79,8 +89,25 @@
 		825D33B52136B4E9008723F8 /* payload.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = payload.h; sourceTree = "<group>"; };
 		825D33B72136C284008723F8 /* offsetsDump.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = offsetsDump.c; sourceTree = "<group>"; };
 		825D33B82136C284008723F8 /* offsetsDump.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = offsetsDump.h; sourceTree = "<group>"; };
-		C6FA18E4220681810022092B /* rootlessJBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rootlessJBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C6FA18E5220681A00022092B /* rootlessJBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rootlessJBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E05432232206765800AAB49A /* kernel_memory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kernel_memory.h; sourceTree = "<group>"; };
+		E05432242206765800AAB49A /* log.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = log.c; sourceTree = "<group>"; };
+		E05432252206765800AAB49A /* parameters.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parameters.c; sourceTree = "<group>"; };
+		E05432262206765800AAB49A /* ipc_port.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ipc_port.h; sourceTree = "<group>"; };
+		E05432272206765800AAB49A /* platform_match.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = platform_match.c; sourceTree = "<group>"; };
+		E05432282206765800AAB49A /* voucher_swap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = voucher_swap.h; sourceTree = "<group>"; };
+		E05432292206765800AAB49A /* kernel_alloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kernel_alloc.h; sourceTree = "<group>"; };
+		E054322A2206765800AAB49A /* platform.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = platform.c; sourceTree = "<group>"; };
+		E054322B2206765800AAB49A /* kernel_slide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kernel_slide.h; sourceTree = "<group>"; };
+		E054322C2206765800AAB49A /* platform_match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = platform_match.h; sourceTree = "<group>"; };
+		E054322D2206765800AAB49A /* parameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parameters.h; sourceTree = "<group>"; };
+		E054322E2206765800AAB49A /* kernel_memory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = kernel_memory.c; sourceTree = "<group>"; };
+		E054322F2206765800AAB49A /* log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = log.h; sourceTree = "<group>"; };
+		E05432302206765800AAB49A /* voucher_swap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = voucher_swap.c; sourceTree = "<group>"; };
+		E05432312206765800AAB49A /* kernel_alloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = kernel_alloc.c; sourceTree = "<group>"; };
+		E05432322206765800AAB49A /* IOKitLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOKitLib.h; sourceTree = "<group>"; };
+		E05432332206765800AAB49A /* kernel_slide.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = kernel_slide.c; sourceTree = "<group>"; };
+		E05432342206765800AAB49A /* platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = platform.h; sourceTree = "<group>"; };
+		E05432352206765800AAB49A /* mach_vm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mach_vm.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,8 +149,6 @@
 				820FAA14213589AF004E38D8 /* rootlessJBTests */,
 				820FAA1F213589AF004E38D8 /* rootlessJBUITests */,
 				825D33AD2136A70A008723F8 /* Frameworks */,
-				C6FA18E4220681810022092B /* rootlessJBTests.xctest */,
-				C6FA18E5220681A00022092B /* rootlessJBUITests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,8 +207,8 @@
 		825D33972135D2B8008723F8 /* exploit */ = {
 			isa = PBXGroup;
 			children = (
+				E05432222206765800AAB49A /* voucher_swap */,
 				825D33982135D2B8008723F8 /* multi_path */,
-				825D339F2135D2B8008723F8 /* vfs */,
 			);
 			name = exploit;
 			path = rootlessJB/exploit;
@@ -202,18 +227,37 @@
 			path = multi_path;
 			sourceTree = "<group>";
 		};
-		825D339F2135D2B8008723F8 /* vfs */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = vfs;
-			sourceTree = "<group>";
-		};
 		825D33AD2136A70A008723F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E05432222206765800AAB49A /* voucher_swap */ = {
+			isa = PBXGroup;
+			children = (
+				E05432232206765800AAB49A /* kernel_memory.h */,
+				E05432242206765800AAB49A /* log.c */,
+				E05432252206765800AAB49A /* parameters.c */,
+				E05432262206765800AAB49A /* ipc_port.h */,
+				E05432272206765800AAB49A /* platform_match.c */,
+				E05432282206765800AAB49A /* voucher_swap.h */,
+				E05432292206765800AAB49A /* kernel_alloc.h */,
+				E054322A2206765800AAB49A /* platform.c */,
+				E054322B2206765800AAB49A /* kernel_slide.h */,
+				E054322C2206765800AAB49A /* platform_match.h */,
+				E054322D2206765800AAB49A /* parameters.h */,
+				E054322E2206765800AAB49A /* kernel_memory.c */,
+				E054322F2206765800AAB49A /* log.h */,
+				E05432302206765800AAB49A /* voucher_swap.c */,
+				E05432312206765800AAB49A /* kernel_alloc.c */,
+				E05432322206765800AAB49A /* IOKitLib.h */,
+				E05432332206765800AAB49A /* kernel_slide.c */,
+				E05432342206765800AAB49A /* platform.h */,
+				E05432352206765800AAB49A /* mach_vm.h */,
+			);
+			path = voucher_swap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,7 +295,7 @@
 			);
 			name = rootlessJBTests;
 			productName = rootlessJBTests;
-			productReference = C6FA18E4220681810022092B /* rootlessJBTests.xctest */;
+			productReference = 820FAA11213589AF004E38D8 /* rootlessJBTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		820FAA1B213589AF004E38D8 /* rootlessJBUITests */ = {
@@ -269,7 +313,7 @@
 			);
 			name = rootlessJBUITests;
 			productName = rootlessJBUITests;
-			productReference = C6FA18E5220681A00022092B /* rootlessJBUITests.xctest */;
+			productReference = 820FAA1C213589AF004E38D8 /* rootlessJBUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -278,7 +322,7 @@
 		820FA9F1213589AF004E38D8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Jake James";
 				TargetAttributes = {
 					820FA9F8213589AF004E38D8 = {
@@ -353,12 +397,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E05432362206765800AAB49A /* log.c in Sources */,
+				E05432372206765800AAB49A /* parameters.c in Sources */,
 				820FAA01213589AF004E38D8 /* ViewController.m in Sources */,
 				820FAA0C213589AF004E38D8 /* main.m in Sources */,
+				E054323D2206765800AAB49A /* kernel_slide.c in Sources */,
 				825D33B62136B4E9008723F8 /* payload.c in Sources */,
+				E054323A2206765800AAB49A /* kernel_memory.c in Sources */,
+				E054323C2206765800AAB49A /* kernel_alloc.c in Sources */,
+				E05432392206765800AAB49A /* platform.c in Sources */,
 				825D33B92136C284008723F8 /* offsetsDump.c in Sources */,
+				E054323B2206765800AAB49A /* voucher_swap.c in Sources */,
 				825D33A02135D2B8008723F8 /* offsets.m in Sources */,
 				825D33A12135D2B8008723F8 /* sploit.c in Sources */,
+				E05432382206765800AAB49A /* platform_match.c in Sources */,
 				820FA9FE213589AF004E38D8 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +480,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -435,6 +488,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -483,6 +537,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -490,6 +545,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -565,10 +621,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9T6493493X;
+				DEVELOPMENT_TEAM = 22G2QV87A2;
 				INFOPLIST_FILE = rootlessJBTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jakeashacks.multi-path";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jakeashacks.rootlessJBTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/rootlessJB.app/rootlessJB";
@@ -580,10 +636,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9T6493493X;
+				DEVELOPMENT_TEAM = 22G2QV87A2;
 				INFOPLIST_FILE = rootlessJBTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jakeashacks.multi-path";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jakeashacks.rootlessJBTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/rootlessJB.app/rootlessJB";
@@ -594,10 +650,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9T6493493X;
+				DEVELOPMENT_TEAM = 22G2QV87A2;
 				INFOPLIST_FILE = rootlessJBUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jakeshacks.rootlessJBUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jakeashacks.rootlessJBUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = rootlessJB;
@@ -608,10 +664,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9T6493493X;
+				DEVELOPMENT_TEAM = 22G2QV87A2;
 				INFOPLIST_FILE = rootlessJBUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jakeshacks.rootlessJBUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jakeashacks.rootlessJBUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = rootlessJB;
