@@ -7,7 +7,7 @@ Blah blah, read this: [How to make a jailbreak without a filesystem remount as r
 ## Usage notes
 
 - empty_list used by default. You can change that in sploit.c
-- Cydia Impactor will BREAK the binaries and the only solution would be compressing files or saurik releasing an update. I will not bother with an ipa. If you really want it tell me at @Jakeashacks
+- Cydia Impactor will BREAK the binaries and the only solution would be compressing files or saurik releasing an update. I will not bother with an ipa for now.
 - Binaries are located in: /var/containers/Bundle/iosbinpack64
 - Launch daemons are located in /var/containers/Bundle/iosbinpack64/LaunchDaemons
 - /var/containers/Bundle/tweaksupport contains a filesystem simulation where tweaks and stuff get installed
