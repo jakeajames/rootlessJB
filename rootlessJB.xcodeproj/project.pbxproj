@@ -47,7 +47,7 @@
 
 /* Begin PBXFileReference section */
 		8207AE142154343700ABA466 /* apps */ = {isa = PBXFileReference; lastKnownFileType = folder; name = apps; path = rootlessJB/bootstrap/apps; sourceTree = "<group>"; };
-		820FA9F9213589AF004E38D8 /* rootlessJB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rootlessJB.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		820FA9F9213589AF004E38D8 /* rootlessJB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = rootlessJB.app; path = "/Users/diegosmc/Downloads/rootlessJB-master/build/Debug-iphoneos/rootlessJB.app"; sourceTree = "<absolute>"; };
 		820FA9FC213589AF004E38D8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		820FA9FD213589AF004E38D8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		820FA9FF213589AF004E38D8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -57,10 +57,8 @@
 		820FAA08213589AF004E38D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		820FAA0A213589AF004E38D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		820FAA0B213589AF004E38D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		820FAA11213589AF004E38D8 /* rootlessJBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rootlessJBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		820FAA15213589AF004E38D8 /* rootlessJBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rootlessJBTests.m; sourceTree = "<group>"; };
 		820FAA17213589AF004E38D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		820FAA1C213589AF004E38D8 /* rootlessJBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rootlessJBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		820FAA20213589AF004E38D8 /* rootlessJBUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rootlessJBUITests.m; sourceTree = "<group>"; };
 		820FAA22213589AF004E38D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		825D33912135D17E008723F8 /* jelbrekLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jelbrekLib.h; sourceTree = "<group>"; };
@@ -81,6 +79,8 @@
 		825D33B52136B4E9008723F8 /* payload.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = payload.h; sourceTree = "<group>"; };
 		825D33B72136C284008723F8 /* offsetsDump.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = offsetsDump.c; sourceTree = "<group>"; };
 		825D33B82136C284008723F8 /* offsetsDump.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = offsetsDump.h; sourceTree = "<group>"; };
+		C6FA18E4220681810022092B /* rootlessJBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rootlessJBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6FA18E5220681A00022092B /* rootlessJBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rootlessJBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,19 +121,10 @@
 				820FA9FB213589AF004E38D8 /* rootlessJB */,
 				820FAA14213589AF004E38D8 /* rootlessJBTests */,
 				820FAA1F213589AF004E38D8 /* rootlessJBUITests */,
-				820FA9FA213589AF004E38D8 /* Products */,
 				825D33AD2136A70A008723F8 /* Frameworks */,
+				C6FA18E4220681810022092B /* rootlessJBTests.xctest */,
+				C6FA18E5220681A00022092B /* rootlessJBUITests.xctest */,
 			);
-			sourceTree = "<group>";
-		};
-		820FA9FA213589AF004E38D8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				820FA9F9213589AF004E38D8 /* rootlessJB.app */,
-				820FAA11213589AF004E38D8 /* rootlessJBTests.xctest */,
-				820FAA1C213589AF004E38D8 /* rootlessJBUITests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		820FA9FB213589AF004E38D8 /* rootlessJB */ = {
@@ -260,7 +251,7 @@
 			);
 			name = rootlessJBTests;
 			productName = rootlessJBTests;
-			productReference = 820FAA11213589AF004E38D8 /* rootlessJBTests.xctest */;
+			productReference = C6FA18E4220681810022092B /* rootlessJBTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		820FAA1B213589AF004E38D8 /* rootlessJBUITests */ = {
@@ -278,7 +269,7 @@
 			);
 			name = rootlessJBUITests;
 			productName = rootlessJBUITests;
-			productReference = 820FAA1C213589AF004E38D8 /* rootlessJBUITests.xctest */;
+			productReference = C6FA18E5220681A00022092B /* rootlessJBUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -315,7 +306,7 @@
 				Base,
 			);
 			mainGroup = 820FA9F0213589AF004E38D8;
-			productRefGroup = 820FA9FA213589AF004E38D8 /* Products */;
+			productRefGroup = 820FA9F0213589AF004E38D8;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -533,7 +524,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9F3ED5X4UJ;
+				DEVELOPMENT_TEAM = 9T6493493X;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = rootlessJB/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -542,7 +533,7 @@
 					"$(PROJECT_DIR)/rootlessJB/libs",
 				);
 				OTHER_LDFLAGS = "-lc++";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jakeashacks.multi-path";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dashing.multi-path";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -554,7 +545,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9F3ED5X4UJ;
+				DEVELOPMENT_TEAM = 9T6493493X;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = rootlessJB/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -563,7 +554,7 @@
 					"$(PROJECT_DIR)/rootlessJB/libs",
 				);
 				OTHER_LDFLAGS = "-lc++";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jakeashacks.multi-path";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dashing.multi-path";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -574,10 +565,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 22G2QV87A2;
+				DEVELOPMENT_TEAM = 9T6493493X;
 				INFOPLIST_FILE = rootlessJBTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jakeashacks.rootlessJBTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jakeashacks.multi-path";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/rootlessJB.app/rootlessJB";
@@ -589,10 +580,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 22G2QV87A2;
+				DEVELOPMENT_TEAM = 9T6493493X;
 				INFOPLIST_FILE = rootlessJBTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jakeashacks.rootlessJBTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jakeashacks.multi-path";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/rootlessJB.app/rootlessJB";
@@ -603,10 +594,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 22G2QV87A2;
+				DEVELOPMENT_TEAM = 9T6493493X;
 				INFOPLIST_FILE = rootlessJBUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jakeashacks.rootlessJBUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jakeshacks.rootlessJBUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = rootlessJB;
@@ -617,10 +608,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 22G2QV87A2;
+				DEVELOPMENT_TEAM = 9T6493493X;
 				INFOPLIST_FILE = rootlessJBUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jakeashacks.rootlessJBUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jakeshacks.rootlessJBUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = rootlessJB;
