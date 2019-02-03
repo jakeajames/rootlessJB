@@ -26,6 +26,14 @@
 		825D33B32136AA4F008723F8 /* tars in Resources */ = {isa = PBXBuildFile; fileRef = 825D33B22136AA4E008723F8 /* tars */; };
 		825D33B62136B4E9008723F8 /* payload.c in Sources */ = {isa = PBXBuildFile; fileRef = 825D33B42136B4E9008723F8 /* payload.c */; };
 		825D33B92136C284008723F8 /* offsetsDump.c in Sources */ = {isa = PBXBuildFile; fileRef = 825D33B72136C284008723F8 /* offsetsDump.c */; };
+		E05432362206765800AAB49A /* log.c in Sources */ = {isa = PBXBuildFile; fileRef = E05432242206765800AAB49A /* log.c */; };
+		E05432372206765800AAB49A /* parameters.c in Sources */ = {isa = PBXBuildFile; fileRef = E05432252206765800AAB49A /* parameters.c */; };
+		E05432382206765800AAB49A /* platform_match.c in Sources */ = {isa = PBXBuildFile; fileRef = E05432272206765800AAB49A /* platform_match.c */; };
+		E05432392206765800AAB49A /* platform.c in Sources */ = {isa = PBXBuildFile; fileRef = E054322A2206765800AAB49A /* platform.c */; };
+		E054323A2206765800AAB49A /* kernel_memory.c in Sources */ = {isa = PBXBuildFile; fileRef = E054322E2206765800AAB49A /* kernel_memory.c */; };
+		E054323B2206765800AAB49A /* voucher_swap.c in Sources */ = {isa = PBXBuildFile; fileRef = E05432302206765800AAB49A /* voucher_swap.c */; };
+		E054323C2206765800AAB49A /* kernel_alloc.c in Sources */ = {isa = PBXBuildFile; fileRef = E05432312206765800AAB49A /* kernel_alloc.c */; };
+		E054323D2206765800AAB49A /* kernel_slide.c in Sources */ = {isa = PBXBuildFile; fileRef = E05432332206765800AAB49A /* kernel_slide.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +89,25 @@
 		825D33B52136B4E9008723F8 /* payload.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = payload.h; sourceTree = "<group>"; };
 		825D33B72136C284008723F8 /* offsetsDump.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = offsetsDump.c; sourceTree = "<group>"; };
 		825D33B82136C284008723F8 /* offsetsDump.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = offsetsDump.h; sourceTree = "<group>"; };
+		E05432232206765800AAB49A /* kernel_memory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kernel_memory.h; sourceTree = "<group>"; };
+		E05432242206765800AAB49A /* log.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = log.c; sourceTree = "<group>"; };
+		E05432252206765800AAB49A /* parameters.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parameters.c; sourceTree = "<group>"; };
+		E05432262206765800AAB49A /* ipc_port.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ipc_port.h; sourceTree = "<group>"; };
+		E05432272206765800AAB49A /* platform_match.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = platform_match.c; sourceTree = "<group>"; };
+		E05432282206765800AAB49A /* voucher_swap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = voucher_swap.h; sourceTree = "<group>"; };
+		E05432292206765800AAB49A /* kernel_alloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kernel_alloc.h; sourceTree = "<group>"; };
+		E054322A2206765800AAB49A /* platform.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = platform.c; sourceTree = "<group>"; };
+		E054322B2206765800AAB49A /* kernel_slide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kernel_slide.h; sourceTree = "<group>"; };
+		E054322C2206765800AAB49A /* platform_match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = platform_match.h; sourceTree = "<group>"; };
+		E054322D2206765800AAB49A /* parameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parameters.h; sourceTree = "<group>"; };
+		E054322E2206765800AAB49A /* kernel_memory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = kernel_memory.c; sourceTree = "<group>"; };
+		E054322F2206765800AAB49A /* log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = log.h; sourceTree = "<group>"; };
+		E05432302206765800AAB49A /* voucher_swap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = voucher_swap.c; sourceTree = "<group>"; };
+		E05432312206765800AAB49A /* kernel_alloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = kernel_alloc.c; sourceTree = "<group>"; };
+		E05432322206765800AAB49A /* IOKitLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOKitLib.h; sourceTree = "<group>"; };
+		E05432332206765800AAB49A /* kernel_slide.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = kernel_slide.c; sourceTree = "<group>"; };
+		E05432342206765800AAB49A /* platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = platform.h; sourceTree = "<group>"; };
+		E05432352206765800AAB49A /* mach_vm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mach_vm.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,8 +218,8 @@
 		825D33972135D2B8008723F8 /* exploit */ = {
 			isa = PBXGroup;
 			children = (
+				E05432222206765800AAB49A /* voucher_swap */,
 				825D33982135D2B8008723F8 /* multi_path */,
-				825D339F2135D2B8008723F8 /* vfs */,
 			);
 			name = exploit;
 			path = rootlessJB/exploit;
@@ -211,18 +238,37 @@
 			path = multi_path;
 			sourceTree = "<group>";
 		};
-		825D339F2135D2B8008723F8 /* vfs */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = vfs;
-			sourceTree = "<group>";
-		};
 		825D33AD2136A70A008723F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E05432222206765800AAB49A /* voucher_swap */ = {
+			isa = PBXGroup;
+			children = (
+				E05432232206765800AAB49A /* kernel_memory.h */,
+				E05432242206765800AAB49A /* log.c */,
+				E05432252206765800AAB49A /* parameters.c */,
+				E05432262206765800AAB49A /* ipc_port.h */,
+				E05432272206765800AAB49A /* platform_match.c */,
+				E05432282206765800AAB49A /* voucher_swap.h */,
+				E05432292206765800AAB49A /* kernel_alloc.h */,
+				E054322A2206765800AAB49A /* platform.c */,
+				E054322B2206765800AAB49A /* kernel_slide.h */,
+				E054322C2206765800AAB49A /* platform_match.h */,
+				E054322D2206765800AAB49A /* parameters.h */,
+				E054322E2206765800AAB49A /* kernel_memory.c */,
+				E054322F2206765800AAB49A /* log.h */,
+				E05432302206765800AAB49A /* voucher_swap.c */,
+				E05432312206765800AAB49A /* kernel_alloc.c */,
+				E05432322206765800AAB49A /* IOKitLib.h */,
+				E05432332206765800AAB49A /* kernel_slide.c */,
+				E05432342206765800AAB49A /* platform.h */,
+				E05432352206765800AAB49A /* mach_vm.h */,
+			);
+			path = voucher_swap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,12 +408,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E05432362206765800AAB49A /* log.c in Sources */,
+				E05432372206765800AAB49A /* parameters.c in Sources */,
 				820FAA01213589AF004E38D8 /* ViewController.m in Sources */,
 				820FAA0C213589AF004E38D8 /* main.m in Sources */,
+				E054323D2206765800AAB49A /* kernel_slide.c in Sources */,
 				825D33B62136B4E9008723F8 /* payload.c in Sources */,
+				E054323A2206765800AAB49A /* kernel_memory.c in Sources */,
+				E054323C2206765800AAB49A /* kernel_alloc.c in Sources */,
+				E05432392206765800AAB49A /* platform.c in Sources */,
 				825D33B92136C284008723F8 /* offsetsDump.c in Sources */,
+				E054323B2206765800AAB49A /* voucher_swap.c in Sources */,
 				825D33A02135D2B8008723F8 /* offsets.m in Sources */,
 				825D33A12135D2B8008723F8 /* sploit.c in Sources */,
+				E05432382206765800AAB49A /* platform_match.c in Sources */,
 				820FA9FE213589AF004E38D8 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,7 +587,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9F3ED5X4UJ;
+				DEVELOPMENT_TEAM = 4WR2S8GS5M;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = rootlessJB/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -542,7 +596,7 @@
 					"$(PROJECT_DIR)/rootlessJB/libs",
 				);
 				OTHER_LDFLAGS = "-lc++";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jakeashacks.multi-path";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alticha.rootlessjb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -554,7 +608,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9F3ED5X4UJ;
+				DEVELOPMENT_TEAM = 4WR2S8GS5M;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = rootlessJB/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -563,7 +617,7 @@
 					"$(PROJECT_DIR)/rootlessJB/libs",
 				);
 				OTHER_LDFLAGS = "-lc++";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jakeashacks.multi-path";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alticha.rootlessjb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
