@@ -99,7 +99,12 @@
             printf("[-] Error using hgsp! '%s'\n", mach_error_string(ret));
             printf("[*] Using exploit!\n");
             
-            taskforpidzero = exploit();
+            if (!maxVersion("11.4.1") && maxVersion("12.1.2")) {
+                taskforpidzero = voucher_swap();
+            }
+            else if (maxVersion("11.3.1")) {
+                taskforpidzero = exploit();
+            }
             
             if (!MACH_PORT_VALID(taskforpidzero)) {
                 LOG("[-] Exploit failed");
@@ -129,9 +134,14 @@
     }
     
     LOG("[*] Starting fun");
-    
-    kernel_slide_init();
-    init_with_kbase(taskforpidzero, 0xfffffff007004000 + kernel_slide);
+    if (!maxVersion("11.4.1") && maxVersion("12.1.2")) {
+        kernel_slide_init();
+        init_with_kbase(taskforpidzero, 0xfffffff007004000 + kernel_slide);
+    }
+    else if (maxVersion("11.3.1")) {
+        init_jelbrek(taskforpidzero);
+    }
+   
     LOG("[i] Kernel base: 0x%llx", KernelBase);
     
     //---- basics ----//
@@ -435,7 +445,13 @@ end:;
         if (ret) {
             printf("[-] Error using hgsp! '%s'\n", mach_error_string(ret));
             printf("[*] Using exploit!\n");
-            taskforpidzero = exploit();
+            
+            if (!maxVersion("11.4.1") && maxVersion("12.1.2")) {
+                taskforpidzero = voucher_swap();
+            }
+            else if (maxVersion("11.3.1")) {
+                taskforpidzero = exploit();
+            }
             
             if (!MACH_PORT_VALID(taskforpidzero)) {
                 LOG("[-] Exploit failed");
@@ -446,7 +462,12 @@ end:;
         }
     }
     else {
-        taskforpidzero = exploit();
+        if (!maxVersion("11.4.1") && maxVersion("12.1.2")) {
+            taskforpidzero = voucher_swap();
+        }
+        else if (maxVersion("11.3.1")) {
+            taskforpidzero = exploit();
+        }
         
         if (!MACH_PORT_VALID(taskforpidzero)) {
             LOG("[-] Exploit failed");
@@ -456,7 +477,15 @@ end:;
         }
     }
     LOG("[*] Starting fun");
-    init_jelbrek(taskforpidzero);
+    
+    if (!maxVersion("11.4.1") && maxVersion("12.1.2")) {
+        kernel_slide_init();
+        init_with_kbase(taskforpidzero, 0xfffffff007004000 + kernel_slide);
+    }
+    else if (maxVersion("11.3.1")) {
+        init_jelbrek(taskforpidzero);
+    }
+    
     LOG("[i] Kernel base: 0x%llx", KernelBase);
     
     //---- basics ----//
